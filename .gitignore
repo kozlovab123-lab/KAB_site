@@ -1,0 +1,8 @@
+.env
+fttp_data.txt
+__pycache__/
+*.pyc
+gigachat_config.php
+_rag_src/
+rag/index.json
+rag/rag_cache.db

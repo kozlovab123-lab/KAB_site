@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KAB — сайт в разработке</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+      color: #eef1ff;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    .container { width: min(1140px, 100%); margin: 0 auto; padding: 0 1rem; }
+    .hero {
+      text-align: center;
+      padding: 3.2rem 0 2rem;
+    }
+    .hero h1 {
+      font-size: clamp(1.6rem, 4vw, 2.8rem);
+      margin-bottom: 0.9rem;
+      letter-spacing: 0.04em;
+    }
+    .hero p {
+      color: #bdc7de;
+      font-size: clamp(1rem, 2.2vw, 1.2rem);
+      line-height: 1.7;
+      max-width: 880px;
+      margin: 0 auto;
+    }
+    .projects {
+      flex: 1;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+      align-content: center;
+      padding: 2rem 0 3rem;
+    }
+    .project-card {
+      border: 1px solid rgba(255,255,255,0.12);
+      background: rgba(255,255,255,0.07);
+      backdrop-filter: blur(6px);
+      border-radius: 16px;
+      padding: 1.4rem;
+      cursor: pointer;
+      transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+      min-height: 220px;
+    }
+    .project-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(114, 190, 255, 0.7);
+      background: rgba(255,255,255,0.1);
+    }
+    .project-card h3 { margin-bottom: 0.7rem; font-size: 1.15rem; }
+    .project-card p { color: #bec8df; line-height: 1.55; }
+    .project-link {
+      margin-top: 1rem;
+      display: inline-block;
+      font-size: 0.9rem;
+      color: #82c0ff;
+    }
+    .footer {
+      border-top: 1px solid rgba(255,255,255,0.12);
+      background: rgba(10, 15, 30, 0.45);
+      padding: 1.15rem 0;
+      color: #9daac8;
+      font-size: 0.92rem;
+    }
+    .footer-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 0.8rem;
+      flex-wrap: wrap;
+    }
+
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(5, 8, 18, 0.72);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 40;
+      padding: 1rem;
+    }
+    .modal-overlay.open { display: flex; }
+    .modal {
+      width: min(760px, 100%);
+      max-height: 88vh;
+      overflow: auto;
+      border-radius: 14px;
+      background: #171f38;
+      border: 1px solid rgba(255,255,255,0.16);
+      padding: 1.2rem;
+    }
+    .modal h2 { margin-bottom: 0.8rem; }
+    .modal p, .modal li { color: #c6d0e7; line-height: 1.55; }
+    .modal ul { margin: 0.7rem 0 0.7rem 1.1rem; }
+    .modal-close {
+      float: right;
+      border: none;
+      border-radius: 8px;
+      padding: 0.35rem 0.55rem;
+      background: rgba(255,255,255,0.16);
+      color: #fff;
+      cursor: pointer;
+    }
+
+    .chat-fab {
+      position: fixed;
+      right: 1rem;
+      bottom: 1rem;
+      border: none;
+      border-radius: 999px;
+      background: #2d8cff;
+      color: #fff;
+      font-weight: 700;
+      padding: 0.85rem 1.05rem;
+      cursor: pointer;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.35);
+      z-index: 45;
+    }
+    .chat-popup {
+      position: fixed;
+      right: 1rem;
+      bottom: 4.8rem;
+      width: min(420px, calc(100vw - 2rem));
+      border-radius: 14px;
+      background: #10182d;
+      border: 1px solid rgba(255,255,255,0.12);
+      display: none;
+      z-index: 45;
+      overflow: hidden;
+    }
+    .chat-popup.open { display: block; }
+    .chat-head {
+      padding: 0.8rem 1rem;
+      border-bottom: 1px solid rgba(255,255,255,0.12);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .chat-head h4 { font-size: 1rem; }
+    .chat-head button {
+      border: none;
+      background: transparent;
+      color: #fff;
+      font-size: 1.1rem;
+      cursor: pointer;
+    }
+    .chat-note {
+      color: #9fb0cf;
+      font-size: 0.82rem;
+      padding: 0.6rem 1rem 0;
+    }
+    .chat-options {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      margin: 0.45rem 1rem 0.65rem;
+      color: #aebbd6;
+      font-size: 0.85rem;
+    }
+    .messages {
+      height: 280px;
+      overflow-y: auto;
+      margin: 0 1rem 0.7rem;
+      padding: 0.55rem;
+      border-radius: 10px;
+      background: rgba(255,255,255,0.06);
+    }
+    .msg {
+      margin-bottom: 0.5rem;
+      border-radius: 8px;
+      padding: 0.5rem 0.65rem;
+      line-height: 1.45;
+      white-space: pre-wrap;
+      font-size: 0.93rem;
+    }
+    .msg.user { background: rgba(75, 148, 255, 0.24); }
+    .msg.bot { background: rgba(255,255,255,0.12); }
+    .msg-meta { font-size: 0.75rem; color: #9eb1d3; margin-bottom: 0.25rem; }
+    .badge { display: inline-block; padding: 0.08rem 0.38rem; border-radius: 999px; margin-right: 0.25rem; }
+    .badge.cache { background: rgba(120, 220, 140, 0.2); color: #b8f0c2; }
+    .sources { margin-top: 0.45rem; font-size: 0.8rem; color: #b8c7e2; }
+    .sources summary { cursor: pointer; }
+    .sources li { margin: 0.3rem 0 0.3rem 0.95rem; }
+    .chat-row {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 0.45rem;
+      padding: 0 1rem 1rem;
+    }
+    input, .send-btn {
+      border: none;
+      border-radius: 9px;
+      font-size: 0.95rem;
+      padding: 0.65rem 0.8rem;
+    }
+    input { background: rgba(255,255,255,0.96); color: #111; }
+    .send-btn { background: #52a1ff; color: #fff; cursor: pointer; font-weight: 600; }
+    .send-btn:disabled { opacity: 0.65; cursor: wait; }
+
+    @media (max-width: 920px) {
+      .projects { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <header class="hero container">
+    <h1>KAB — территория новых ИТ-проектов</h1>
+    <p>
+      Приветствую тебя, неутомимый странник, случайно забредший на эту страничку.
+      Меня зовут Козлов Алексей, и в свои 67 лет я решил круто изменить свою жизнь и освоить новые глубины ИТ.
+      Здесь будут публиковаться проекты в области промпт-инжиниринга, автоматизации и прикладного ИИ.
+    </p>
+  </header>
+
+  <main class="container projects">
+    <article class="project-card" data-project="p1">
+      <h3>PromptOps Studio</h3>
+      <p>Система тестирования и версионирования промптов с автоматической оценкой качества ответов модели.</p>
+      <span class="project-link">Открыть детали</span>
+    </article>
+    <article class="project-card" data-project="p2">
+      <h3>RAG Knowledge Assistant</h3>
+      <p>Ассистент по документам: поиск релевантных фрагментов + генерация ответа с указанием источников.</p>
+      <span class="project-link">Открыть детали</span>
+    </article>
+    <article class="project-card" data-project="p3">
+      <h3>AI Brief Generator</h3>
+      <p>Генератор технических заданий и проектных брифов на основе короткого бизнес-описания идеи.</p>
+      <span class="project-link">Открыть детали</span>
+    </article>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-row">
+      <span>© 2026 KAB Project Lab</span>
+      <span>Prompt Engineering • RAG • AI Automation</span>
+      <span>Контакты: kab.solig.ru</span>
+    </div>
+  </footer>
+
+  <div id="projectModalOverlay" class="modal-overlay" aria-hidden="true">
+    <div class="modal">
+      <button id="modalClose" class="modal-close" type="button">✕</button>
+      <h2 id="modalTitle"></h2>
+      <div id="modalContent"></div>
+    </div>
+  </div>
+
+  <button id="chatFab" class="chat-fab" type="button">ИИ-консультант</button>
+  <aside id="chatPopup" class="chat-popup" aria-hidden="true">
+    <div class="chat-head">
+      <h4>ИИ-консультант</h4>
+      <button id="chatClose" type="button">✕</button>
+    </div>
+    <div class="chat-note">Ответы по базе знаний: семантический поиск + GigaChat.</div>
+    <label class="chat-options"><input id="useCache" type="checkbox" checked> Использовать кеш</label>
+      <div id="messages" class="messages">
+        <div class="msg bot">Здравствуйте! Я ассистент по документам. Задайте вопрос по работе с ИИ.</div>
+      </div>
+    <div class="chat-row">
+      <input id="prompt" type="text" placeholder="Введите ваш вопрос..." maxlength="1200">
+      <button id="sendBtn" class="send-btn" type="button">Отправить</button>
+    </div>
+  </aside>
+
+  <script>
+    const PROJECTS = {
+      p1: {
+        title: "PromptOps Studio",
+        html: `
+          <p>Платформа для инженерии промптов в командной разработке. Позволяет хранить версии системных и пользовательских промптов, сравнивать результаты разных моделей и запускать авто-проверки.</p>
+          <ul>
+            <li>Версионирование промптов и шаблонов ролей.</li>
+            <li>Наборы тест-кейсов с метриками: точность, полнота, устойчивость.</li>
+            <li>A/B-сравнение ответов двух стратегий промптинга.</li>
+            <li>Экспорт лучших конфигураций в production API.</li>
+          </ul>
+        `
+      },
+      p2: {
+        title: "RAG Knowledge Assistant",
+        html: `
+          <p>Ассистент по документам для практического использования на сайте. Перед ответом выполняется поиск релевантных фрагментов, после чего модель формирует итог с опорой на контекст.</p>
+          <ul>
+            <li>Семантический поиск по базе знаний (эмбеддинги).</li>
+            <li>Контекстная генерация через GigaChat.</li>
+            <li>Показ источников, использованных для ответа.</li>
+            <li>Кеш повторных вопросов для ускорения работы.</li>
+          </ul>
+        `
+      },
+      p3: {
+        title: "AI Brief Generator",
+        html: `
+          <p>Инструмент для быстрого создания проектной документации в стиле «идея → структурированный бриф». Особенно полезен в предпроектной фазе.</p>
+          <ul>
+            <li>Генерация целей, задач, KPI и критериев приемки.</li>
+            <li>Выделение рисков и допущений по проекту.</li>
+            <li>Формирование roadmap по этапам внедрения.</li>
+            <li>Поддержка шаблонов под разные типы продуктов.</li>
+          </ul>
+        `
+      }
+    };
+
+    const modalOverlay = document.getElementById("projectModalOverlay");
+    const modalTitle = document.getElementById("modalTitle");
+    const modalContent = document.getElementById("modalContent");
+    const modalClose = document.getElementById("modalClose");
+
+    document.querySelectorAll(".project-card").forEach((card) => {
+      card.addEventListener("click", () => {
+        const key = card.dataset.project;
+        const data = PROJECTS[key];
+        if (!data) return;
+        modalTitle.textContent = data.title;
+        modalContent.innerHTML = data.html;
+        modalOverlay.classList.add("open");
+      });
+    });
+
+    function closeModal() {
+      modalOverlay.classList.remove("open");
+    }
+
+    modalClose.addEventListener("click", closeModal);
+    modalOverlay.addEventListener("click", (e) => {
+      if (e.target === modalOverlay) closeModal();
+    });
+
+    const chatFab = document.getElementById("chatFab");
+    const chatPopup = document.getElementById("chatPopup");
+    const chatClose = document.getElementById("chatClose");
+    const messages = document.getElementById("messages");
+    const promptEl = document.getElementById("prompt");
+    const sendBtn = document.getElementById("sendBtn");
+    const useCacheEl = document.getElementById("useCache");
+
+    function toggleChat(force) {
+      const shouldOpen = typeof force === "boolean" ? force : !chatPopup.classList.contains("open");
+      chatPopup.classList.toggle("open", shouldOpen);
+      if (shouldOpen) promptEl.focus();
+    }
+
+    chatFab.addEventListener("click", () => toggleChat());
+    chatClose.addEventListener("click", () => toggleChat(false));
+
+    function esc(text) {
+      const el = document.createElement("div");
+      el.textContent = text;
+      return el.innerHTML;
+    }
+
+    function addUserMessage(text) {
+      const div = document.createElement("div");
+      div.className = "msg user";
+      div.innerHTML = `<div class="msg-meta">Вопрос</div>${esc(text)}`;
+      messages.appendChild(div);
+      messages.scrollTop = messages.scrollHeight;
+    }
+
+    function addBotMessage(data, errorText) {
+      const div = document.createElement("div");
+      div.className = "msg bot";
+      if (errorText) {
+        div.textContent = "Ошибка: " + errorText;
+        messages.appendChild(div);
+        messages.scrollTop = messages.scrollHeight;
+        return;
+      }
+
+      const badges = ["Ответ"];
+      if (data.from_cache) badges.push("из кеша");
+      let sourcesHtml = "";
+      const docs = data.context_docs || [];
+      if (docs.length > 0) {
+        const items = docs.map((doc, i) => {
+          const dist = doc.distance != null ? ` (расстояние: ${Number(doc.distance).toFixed(4)})` : "";
+          const text = (doc.text || "").slice(0, 220);
+          const tail = (doc.text || "").length > 220 ? "…" : "";
+          return `<li><strong>Фрагмент ${i + 1}</strong>${esc(dist)}<div>${esc(text)}${tail}</div></li>`;
+        }).join("");
+        sourcesHtml = `<div class="sources"><details><summary>Источники (${docs.length})</summary><ul>${items}</ul></details></div>`;
+      }
+
+      div.innerHTML = `<div class="msg-meta">${badges.map((b) => `<span class="badge${b === "из кеша" ? " cache" : ""}">${esc(b)}</span>`).join("")}</div>${esc(data.answer || "")}${sourcesHtml}`;
+      messages.appendChild(div);
+      messages.scrollTop = messages.scrollHeight;
+    }
+
+    async function send() {
+      const text = promptEl.value.trim();
+      if (!text) return;
+      toggleChat(true);
+      promptEl.value = "";
+      addUserMessage(text);
+      sendBtn.disabled = true;
+      addBotMessage({ answer: "Думаю..." });
+      const thinkingEl = messages.lastElementChild;
+
+      try {
+        const resp = await fetch("gigachat_proxy.php", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ message: text, use_cache: useCacheEl.checked })
+        });
+        const data = await resp.json();
+        messages.removeChild(thinkingEl);
+        if (!resp.ok || !data.ok) {
+          addBotMessage(null, data.error || "не удалось получить ответ");
+          return;
+        }
+        addBotMessage(data);
+      } catch (e) {
+        messages.removeChild(thinkingEl);
+        addBotMessage(null, "сетевая ошибка при обращении к консультанту");
+      } finally {
+        sendBtn.disabled = false;
+        promptEl.focus();
+      }
+    }
+
+    sendBtn.addEventListener("click", send);
+    promptEl.addEventListener("keydown", (e) => {
+      if (e.key === "Enter") send();
+    });
+  </script>
+</body>
+</html>

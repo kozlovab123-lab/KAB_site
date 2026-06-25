@@ -1,0 +1,11 @@
+{
+  "provider": "reg.ru",
+  "ftp": {
+    "host": "31.31.196.178",
+    "port": 21,
+    "user": "u3017793"
+  },
+  "remote_dir": "/www/kab.solig.ru",
+  "domain": "kab.solig.ru",
+  "parent_domain": "solig.ru"
+}
