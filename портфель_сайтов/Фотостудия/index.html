@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>КАБ‑студия — Профессиональная съёмка и видеопродакшн</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <header class="header">
+    <div class="container header__inner">
+      <a href="#" class="logo">КАБ‑студия</a>
+      <nav class="nav">
+        <a href="#services">Услуги</a>
+        <a href="#portfolio">Портфолио</a>
+        <a href="#packages">Пакеты</a>
+        <a href="#process">Процесс</a>
+        <a href="#contacts">Контакты</a>
+      </nav>
+      <a href="#contacts" class="header__cta">Забронировать</a>
+    </div>
+  </header>
+
+  <main>
+
+  <section class="hero section">
+    <div class="hero__bg" id="heroSlider">
+      <div class="slider__track">
+        <div class="slider__slide slider__slide--active">
+          <img src="https://images.unsplash.com/photo-1542038784456-1ea8e935640e?w=1600&q=80" alt="Предметная съёмка в студии">
+        </div>
+        <div class="slider__slide">
+          <img src="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?w=1600&q=80" alt="Контент-съёмка для бренда">
+        </div>
+        <div class="slider__slide">
+          <img src="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?w=1600&q=80" alt="Видеопродакшн на площадке">
+        </div>
+        <div class="slider__slide">
+          <img src="https://images.unsplash.com/photo-1452587925148-ce544e77e70d?w=1600&q=80" alt="Ретушь и постпродакшн">
+        </div>
+      </div>
+      <div class="hero__overlay"></div>
+    </div>
+    <span class="watermark watermark--hero" aria-hidden="true">КАБ‑студия</span>
+    <div class="container hero__inner">
+      <div class="hero__content">
+        <p class="hero__tag">Москва · студия 120 м² · свет и фон в комплекте</p>
+        <h1 class="hero__title">Профессиональная съёмка<br>и видеопродакшн</h1>
+        <p class="hero__subtitle">Готовые кадры за 3 дня, пакеты под маркетплейсы и соцсети</p>
+        <a href="#contacts" class="btn btn--primary">Забронировать студию</a>
+        <ul class="hero__stats">
+          <li><strong>3 дня</strong> до готовых материалов</li>
+          <li><strong>500+</strong> съёмок в год</li>
+          <li><strong>WB / Ozon</strong> форматы под ключ</li>
+        </ul>
+      </div>
+      <div class="hero__controls">
+        <button class="slider__btn slider__btn--prev" aria-label="Предыдущий кадр">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+        </button>
+        <div class="slider__dots"></div>
+        <button class="slider__btn slider__btn--next" aria-label="Следующий кадр">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <section id="services" class="services section section--dark">
+    <div class="container">
+      <div class="section__head">
+        <h2 class="section__title">Услуги</h2>
+        <p class="section__desc">От карточки товара до полноценного видеоролика — берём на себя съёмку, свет, ретушь и сдачу файлов в нужных форматах.</p>
+      </div>
+      <div class="services__grid">
+        <article class="service-card">
+          <div class="service-card__visual">
+            <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=700&q=80" alt="Предметная съёмка">
+            <span class="service-card__num">01</span>
+          </div>
+          <div class="service-card__body">
+            <h3>Предметная съёмка</h3>
+            <p>Каталожные кадры для маркетплейсов: белый фон, инфографика, ракурсы 360°. Готовые файлы под WB и Ozon.</p>
+            <span class="service-card__price">от 4 500 ₽ / артикул</span>
+          </div>
+        </article>
+        <article class="service-card">
+          <div class="service-card__visual">
+            <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=700&q=80" alt="Контент-съёмка">
+            <span class="service-card__num">02</span>
+          </div>
+          <div class="service-card__body">
+            <h3>Контент‑съёмка</h3>
+            <p>Лукбуки, lifestyle и UGC для соцсетей. Модели, стилизация и сценарий — всё в одной студии, без согласований с подрядчиками.</p>
+            <span class="service-card__price">от 18 000 ₽ / смена</span>
+          </div>
+        </article>
+        <article class="service-card">
+          <div class="service-card__visual">
+            <img src="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?w=700&q=80" alt="Видеосъёмка">
+            <span class="service-card__num">03</span>
+            <div class="service-card__play" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+            </div>
+          </div>
+          <div class="service-card__body">
+            <h3>Видео</h3>
+            <p>Ролики для Reels, рекламы и карточек товара. Съёмка, монтаж, субтитры и адаптация под вертикаль и горизонталь.</p>
+            <span class="service-card__price">от 25 000 ₽ / ролик</span>
+          </div>
+        </article>
+        <article class="service-card">
+          <div class="service-card__visual">
+            <img src="https://images.unsplash.com/photo-1452587925148-ce544e77e70d?w=700&q=80" alt="Ретушь фотографий">
+            <span class="service-card__num">04</span>
+          </div>
+          <div class="service-card__body">
+            <h3>Ретушь</h3>
+            <p>Цветокоррекция, удаление дефектов, подготовка под печать и веб. Принимаем RAW и готовые кадры — сдаём в течение 24 часов.</p>
+            <span class="service-card__price">от 350 ₽ / кадр</span>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="portfolio" class="portfolio section">
+    <span class="watermark" aria-hidden="true">КАБ‑студия</span>
+    <div class="container">
+      <div class="section__head">
+        <h2 class="section__title">Портфолио</h2>
+        <p class="section__desc">Лучшие кадры за последний сезон — косметика, одежда, техника и food. Нажмите на работу, чтобы увеличить.</p>
+      </div>
+      <div class="portfolio__grid">
+        <article class="portfolio-card portfolio-card--wide">
+          <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=1200&q=80" alt="Каталог часов">
+          <div class="portfolio-card__overlay">
+            <span class="portfolio-card__tag">Предметная · WB</span>
+            <h3>Каталог часов</h3>
+          </div>
+        </article>
+        <article class="portfolio-card">
+          <img src="https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=700&q=80" alt="Косметика">
+          <div class="portfolio-card__overlay">
+            <span class="portfolio-card__tag">Контент · Instagram</span>
+            <h3>Линейка косметики</h3>
+          </div>
+        </article>
+        <article class="portfolio-card">
+          <img src="https://images.unsplash.com/photo-1445205170230-053b83016050?w=700&q=80" alt="Одежда">
+          <div class="portfolio-card__overlay">
+            <span class="portfolio-card__tag">Лукбук · Ozon</span>
+            <h3>Коллекция одежды</h3>
+          </div>
+        </article>
+        <article class="portfolio-card">
+          <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=700&q=80" alt="Кухонная техника">
+          <div class="portfolio-card__overlay">
+            <span class="portfolio-card__tag">Предметная · Ozon</span>
+            <h3>Кухонная техника</h3>
+          </div>
+        </article>
+        <article class="portfolio-card portfolio-card--tall">
+          <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=700&q=80" alt="Food-съёмка">
+          <div class="portfolio-card__overlay">
+            <span class="portfolio-card__tag">Food · Reels</span>
+            <h3>Ресторанный контент</h3>
+          </div>
+        </article>
+        <article class="portfolio-card">
+          <img src="https://images.unsplash.com/photo-1611532736597-de2d90e6f1cc?w=700&q=80" alt="Видеоролик для бренда">
+          <div class="portfolio-card__overlay">
+            <span class="portfolio-card__tag">Видео · 15 сек</span>
+            <h3>Рекламный ролик</h3>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="packages" class="packages section section--dark">
+    <div class="container">
+      <div class="section__head section__head--center">
+        <h2 class="section__title">Пакеты</h2>
+        <p class="section__desc">Фиксированный состав и цена — без скрытых доплат. Выберите пакет под задачу или соберём индивидуальный.</p>
+      </div>
+      <div class="packages__grid">
+        <article class="package-card">
+          <div class="package-card__head">
+            <h3>Старт</h3>
+            <p class="package-card__for">Для маркетплейсов</p>
+          </div>
+          <div class="package-card__price">
+            <span class="package-card__amount">12 900</span>
+            <span class="package-card__currency">₽</span>
+          </div>
+          <ul class="package-card__list">
+            <li>До 5 артикулов на белом фоне</li>
+            <li>3 ракурса на товар</li>
+            <li>Базовая ретушь и цветокор</li>
+            <li>Файлы JPG + PNG под WB/Ozon</li>
+            <li>Срок сдачи — 3 рабочих дня</li>
+          </ul>
+          <a href="#contacts" class="btn btn--outline">Выбрать пакет</a>
+        </article>
+        <article class="package-card package-card--featured">
+          <span class="package-card__badge">Популярный</span>
+          <div class="package-card__head">
+            <h3>Контент</h3>
+            <p class="package-card__for">Для соцсетей и бренда</p>
+          </div>
+          <div class="package-card__price">
+            <span class="package-card__amount">34 500</span>
+            <span class="package-card__currency">₽</span>
+          </div>
+          <ul class="package-card__list">
+            <li>4‑часовая смена в студии</li>
+            <li>До 3 образов / локаций</li>
+            <li>30 готовых фото + 3 Reels</li>
+            <li>Стилизация и реквизит</li>
+            <li>Монтаж и субтитры в комплекте</li>
+          </ul>
+          <a href="#contacts" class="btn btn--primary">Выбрать пакет</a>
+        </article>
+        <article class="package-card">
+          <div class="package-card__head">
+            <h3>Продакшн</h3>
+            <p class="package-card__for">Для рекламы и запусков</p>
+          </div>
+          <div class="package-card__price">
+            <span class="package-card__amount">68 000</span>
+            <span class="package-card__currency">₽</span>
+          </div>
+          <ul class="package-card__list">
+            <li>Полный день съёмки</li>
+            <li>Фото + видео на одной площадке</li>
+            <li>Сценарий и раскадровка</li>
+            <li>До 60 фото и 5 роликов</li>
+            <li>Приоритетная сдача за 48 часов</li>
+          </ul>
+          <a href="#contacts" class="btn btn--outline">Выбрать пакет</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="process" class="process section">
+    <div class="container">
+      <div class="section__head">
+        <h2 class="section__title">Процесс</h2>
+        <p class="section__desc">Чёткий маршрут от заявки до готовых файлов — без бесконечных согласований и срывов сроков.</p>
+      </div>
+      <div class="process__steps">
+        <article class="process-step">
+          <span class="process-step__num">01</span>
+          <h3>Бриф и бронь</h3>
+          <p>Оставляете заявку, получаете слот в студии в течение 2 часов. Уточняем задачу, форматы и дедлайн.</p>
+        </article>
+        <article class="process-step">
+          <span class="process-step__num">02</span>
+          <h3>Съёмка</h3>
+          <p>Приезжаете с товаром или мы организуем логистику. Фотограф, свет и ассистент — всё на месте, съёмка по таймингу.</p>
+        </article>
+        <article class="process-step">
+          <span class="process-step__num">03</span>
+          <h3>Постпродакшн</h3>
+          <p>Ретушь, цветокор, монтаж видео. Промежуточный просмотр в облаке — правки до двух раундов включены.</p>
+        </article>
+        <article class="process-step">
+          <span class="process-step__num">04</span>
+          <h3>Сдача материалов</h3>
+          <p>Готовые файлы в нужных размерах — на диске, в облаке или напрямую в личный кабинет маркетплейса.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="contacts" class="contacts section section--dark">
+    <div class="container contacts__inner">
+      <div class="contacts__info">
+        <h2 class="section__title">Контакты</h2>
+        <p class="contacts__desc">Забронируйте студию или запросите расчёт под ваш каталог — ответим в течение 2 часов в рабочее время.</p>
+        <ul class="contacts__list">
+          <li>
+            <span class="contacts__label">Телефон</span>
+            <a href="tel:+74951234567">+7 (495) 123‑45‑67</a>
+          </li>
+          <li>
+            <span class="contacts__label">Почта</span>
+            <a href="mailto:hello@kab-studio.ru">hello@kab-studio.ru</a>
+          </li>
+          <li>
+            <span class="contacts__label">Адрес</span>
+            <span>Москва, ул. Профсоюзная, 56, студия 12</span>
+          </li>
+          <li>
+            <span class="contacts__label">Режим</span>
+            <span>Пн–Сб, 9:00–21:00</span>
+          </li>
+        </ul>
+      </div>
+      <form class="contacts__form" id="contactForm">
+        <h3>Забронировать студию</h3>
+        <div class="form-row">
+          <label>
+            <span>Имя</span>
+            <input type="text" name="name" required placeholder="Как к вам обращаться">
+          </label>
+          <label>
+            <span>Телефон</span>
+            <input type="tel" name="phone" required placeholder="+7 (___) ___‑__‑__">
+          </label>
+        </div>
+        <label>
+          <span>Услуга</span>
+          <select name="service">
+            <option value="product">Предметная съёмка</option>
+            <option value="content">Контент‑съёмка</option>
+            <option value="video">Видео</option>
+            <option value="retouch">Ретушь</option>
+            <option value="package">Пакет</option>
+          </select>
+        </label>
+        <label>
+          <span>Комментарий</span>
+          <textarea name="message" rows="3" placeholder="Количество артикулов, желаемая дата, площадка"></textarea>
+        </label>
+        <button type="submit" class="btn btn--primary btn--full">Отправить заявку</button>
+        <p class="form-note">Нажимая кнопку, вы соглашаетесь на обработку персональных данных</p>
+      </form>
+    </div>
+  </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <a href="#" class="logo logo--footer">КАБ‑студия</a>
+      <p class="footer__copy">© 2026 КАБ‑студия. Профессиональная съёмка и видеопродакшн.</p>
+      <nav class="footer__nav">
+        <a href="#services">Услуги</a>
+        <a href="#portfolio">Портфолио</a>
+        <a href="#packages">Пакеты</a>
+        <a href="#contacts">Контакты</a>
+      </nav>
+    </div>
+  </footer>
+
+  <div class="lightbox" id="lightbox" hidden>
+    <button class="lightbox__close" aria-label="Закрыть">&times;</button>
+    <img class="lightbox__img" src="" alt="">
+    <p class="lightbox__caption"></p>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

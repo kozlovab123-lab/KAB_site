@@ -1,0 +1,1026 @@
+/* КАБ‑студия — онлайн‑школа, светлая образовательная стилистика */
+
+:root {
+  --bg: #ffffff;
+  --bg-alt: #f0f7ff;
+  --bg-soft: #e8f4fc;
+  --accent: #7c3aed;
+  --accent-hover: #6d28d9;
+  --accent-light: #ede9fe;
+  --accent-muted: rgba(124, 58, 237, 0.12);
+  --blue: #3b82f6;
+  --blue-light: #dbeafe;
+  --text: #1e293b;
+  --text-secondary: #475569;
+  --text-muted: #94a3b8;
+  --border: #e2e8f0;
+  --shadow: 0 4px 24px rgba(30, 41, 59, 0.08);
+  --shadow-lg: 0 12px 40px rgba(124, 58, 237, 0.12);
+  --radius: 16px;
+  --radius-sm: 10px;
+  --max-width: 1160px;
+  --header-height: 72px;
+  --font: "Manrope", "Segoe UI", system-ui, sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font);
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+.container {
+  width: 100%;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ——— Кнопки ——— */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 28px;
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 12px;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, border-color 0.2s, transform 0.15s;
+}
+
+.btn--primary {
+  background: var(--accent);
+  color: #fff;
+}
+
+.btn--primary:hover {
+  background: var(--accent-hover);
+  transform: translateY(-1px);
+}
+
+.btn--outline {
+  background: transparent;
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+.btn--outline:hover {
+  background: var(--accent-light);
+}
+
+.btn--sm {
+  padding: 10px 20px;
+  font-size: 0.9rem;
+}
+
+/* ——— Логотип ——— */
+
+.logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.logo__mark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: var(--accent);
+  color: #fff;
+  border-radius: 10px;
+  font-size: 0.85rem;
+  letter-spacing: -0.02em;
+}
+
+.logo__text span {
+  color: var(--accent);
+}
+
+/* ——— Шапка ——— */
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  height: var(--header-height);
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+}
+
+.header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 24px;
+  gap: 24px;
+}
+
+.nav {
+  display: flex;
+  gap: 28px;
+}
+
+.nav__link {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  transition: color 0.2s;
+}
+
+.nav__link:hover {
+  color: var(--accent);
+}
+
+.nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--text);
+  cursor: pointer;
+  padding: 8px;
+}
+
+.header__cta {
+  flex-shrink: 0;
+}
+
+/* ——— Секции ——— */
+
+.section {
+  padding: 88px 0;
+}
+
+.section--alt {
+  background: var(--bg-alt);
+}
+
+.section__label {
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--accent);
+  margin-bottom: 12px;
+}
+
+.section__title {
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  font-weight: 800;
+  line-height: 1.2;
+  margin-bottom: 16px;
+  letter-spacing: -0.02em;
+}
+
+.section__desc {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  max-width: 600px;
+  margin-bottom: 48px;
+}
+
+/* ——— Hero ——— */
+
+.hero {
+  padding: 64px 0 96px;
+  background: linear-gradient(180deg, var(--bg-soft) 0%, var(--bg) 70%);
+  overflow: hidden;
+}
+
+.hero__inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: center;
+}
+
+.hero__label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--blue);
+  margin-bottom: 16px;
+}
+
+.hero__title {
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+  margin-bottom: 20px;
+}
+
+.hero__subtitle {
+  font-size: 1.15rem;
+  color: var(--text-secondary);
+  margin-bottom: 32px;
+  max-width: 480px;
+}
+
+.hero__stats {
+  display: flex;
+  gap: 32px;
+  list-style: none;
+  margin-top: 40px;
+  padding-top: 32px;
+  border-top: 1px solid var(--border);
+}
+
+.hero__stats li {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+
+.hero__stats strong {
+  display: block;
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--text);
+  line-height: 1.2;
+}
+
+.hero__visual {
+  position: relative;
+}
+
+.lesson-mock {
+  background: #1e1e2e;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-lg);
+  overflow: hidden;
+  position: relative;
+}
+
+.lesson-mock__bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 16px;
+  background: #2d2d3f;
+}
+
+.lesson-mock__dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #ff5f57;
+}
+
+.lesson-mock__dot:nth-child(2) { background: #febc2e; }
+.lesson-mock__dot:nth-child(3) { background: #28c840; }
+
+.lesson-mock__title {
+  margin-left: 8px;
+  font-size: 0.8rem;
+  color: #94a3b8;
+  font-family: "Consolas", monospace;
+}
+
+.lesson-mock__body {
+  padding: 20px;
+  font-family: "Consolas", "Courier New", monospace;
+  font-size: 0.85rem;
+  line-height: 1.7;
+  color: #e2e8f0;
+}
+
+.lesson-mock__line.indent {
+  padding-left: 24px;
+}
+
+.lesson-mock .kw { color: #c792ea; }
+.lesson-mock .fn { color: #82aaff; }
+.lesson-mock .str { color: #c3e88d; }
+
+.lesson-mock__badge {
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.5);
+  font-family: var(--font);
+}
+
+.hero__float {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 16px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  font-size: 0.85rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.hero__float--1 {
+  top: -16px;
+  right: -12px;
+}
+
+.hero__float--2 {
+  bottom: 24px;
+  left: -24px;
+}
+
+.hero__float-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  background: var(--accent-light);
+  color: var(--accent);
+  border-radius: 8px;
+  font-size: 0.75rem;
+}
+
+/* ——— Шаги обучения ——— */
+
+.steps__list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.steps__item {
+  display: grid;
+  grid-template-columns: 56px 1fr 200px;
+  gap: 24px;
+  align-items: center;
+  padding: 28px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  transition: box-shadow 0.2s, border-color 0.2s;
+}
+
+.steps__item:hover {
+  box-shadow: var(--shadow);
+  border-color: var(--blue-light);
+}
+
+.steps__num {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--accent);
+  opacity: 0.7;
+}
+
+.steps__content h3 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.steps__content p {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+}
+
+.steps__thumb {
+  justify-self: end;
+}
+
+/* Мини-мокапы для шагов */
+
+.mini-mock {
+  width: 180px;
+  padding: 12px;
+  background: var(--bg-alt);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+  font-size: 0.75rem;
+}
+
+.mini-mock--quiz .mini-mock__q {
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.mini-mock__opt {
+  padding: 6px 8px;
+  border-radius: 6px;
+  margin-bottom: 4px;
+  background: #fff;
+  color: var(--text-secondary);
+}
+
+.mini-mock__opt--active {
+  background: var(--accent-light);
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.mini-mock--video {
+  position: relative;
+  height: 80px;
+  background: #1e1e2e;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mini-mock__play {
+  width: 36px;
+  height: 36px;
+  background: var(--accent);
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.7rem;
+}
+
+.mini-mock__progress {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.mini-mock__progress::after {
+  content: "";
+  display: block;
+  width: 65%;
+  height: 100%;
+  background: var(--accent);
+}
+
+.mini-mock--task .mini-mock__status {
+  font-weight: 600;
+  color: #16a34a;
+  margin-bottom: 8px;
+}
+
+.mini-mock__bar-fill {
+  height: 8px;
+  background: var(--border);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.mini-mock__bar-fill::after {
+  content: "";
+  display: block;
+  width: 80%;
+  height: 100%;
+  background: linear-gradient(90deg, var(--blue), var(--accent));
+  border-radius: 4px;
+}
+
+.mini-mock__comment {
+  padding: 6px 8px;
+  background: #fff;
+  border-radius: 6px;
+  margin-bottom: 4px;
+  color: var(--text-secondary);
+}
+
+.mini-mock__comment--ok {
+  color: #16a34a;
+}
+
+.mini-mock--cert {
+  text-align: center;
+  padding: 16px;
+  background: linear-gradient(135deg, var(--accent-light), var(--bg-soft));
+}
+
+.mini-mock__logo {
+  display: block;
+  font-weight: 700;
+  font-size: 0.7rem;
+  color: var(--accent);
+  margin-bottom: 6px;
+}
+
+.mini-mock__cert-text {
+  font-weight: 600;
+  color: var(--text);
+}
+
+/* ——— Курсы ——— */
+
+.courses__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 28px;
+}
+
+.course-card {
+  background: #fff;
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--border);
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+
+.course-card:hover {
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-4px);
+}
+
+.course-card__cover {
+  position: relative;
+  height: 180px;
+  padding: 20px;
+  display: flex;
+  align-items: flex-end;
+}
+
+.course-card__cover--python {
+  background: linear-gradient(135deg, #dbeafe 0%, #ede9fe 100%);
+}
+
+.course-card__cover--flutter {
+  background: linear-gradient(135deg, #e0f2fe 0%, #dbeafe 100%);
+}
+
+.course-card__cover--git {
+  background: linear-gradient(135deg, #f0fdf4 0%, #dbeafe 100%);
+}
+
+.course-card__cover--prompt {
+  background: linear-gradient(135deg, #ede9fe 0%, #fce7f3 100%);
+}
+
+.course-card__logo {
+  position: absolute;
+  top: 16px;
+  left: 20px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--accent);
+  opacity: 0.8;
+}
+
+.course-card__screen {
+  width: 100%;
+  padding: 16px;
+  background: #1e1e2e;
+  border-radius: var(--radius-sm);
+  font-family: "Consolas", monospace;
+  font-size: 0.8rem;
+  color: #e2e8f0;
+}
+
+.course-card__lang {
+  display: block;
+  color: #c792ea;
+  margin-bottom: 6px;
+}
+
+.course-card__screen--mobile {
+  max-width: 120px;
+  margin-left: auto;
+  text-align: center;
+  padding-top: 8px;
+}
+
+.course-card__phone-bar {
+  width: 40px;
+  height: 4px;
+  background: #475569;
+  border-radius: 2px;
+  margin: 0 auto 10px;
+}
+
+.course-card__screen--git {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.git-line--add { color: #c3e88d; }
+.git-line--merge { color: #82aaff; }
+
+.course-card__screen--prompt {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.prompt-role {
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.prompt-text {
+  color: #94a3b8;
+  margin-bottom: 4px;
+}
+
+.course-card__body {
+  padding: 24px;
+}
+
+.course-card__title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.course-card__meta {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-bottom: 12px;
+  display: flex;
+  gap: 6px;
+}
+
+.course-card__result {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  margin-bottom: 20px;
+  line-height: 1.5;
+}
+
+.course-card__result strong {
+  color: var(--text);
+}
+
+/* ——— Для кого ——— */
+
+.audience__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+.audience-card {
+  padding: 28px;
+  background: var(--bg-alt);
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.audience-card:hover {
+  border-color: var(--accent);
+  box-shadow: var(--shadow);
+}
+
+.audience-card__icon {
+  width: 48px;
+  height: 48px;
+  color: var(--accent);
+  margin-bottom: 16px;
+}
+
+.audience-card h3 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.audience-card p {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+
+/* ——— Отзывы ——— */
+
+.reviews__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.review-card {
+  padding: 28px;
+  background: #fff;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+}
+
+.review-card__header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 16px;
+}
+
+.review-card__photo {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--accent-light);
+}
+
+.review-card__name {
+  display: block;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+.review-card__course {
+  font-size: 0.8rem;
+  color: var(--accent);
+  font-weight: 500;
+}
+
+.review-card p {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+/* ——— Старт потока ——— */
+
+.start {
+  background: linear-gradient(135deg, var(--accent) 0%, #5b21b6 100%);
+  color: #fff;
+}
+
+.start__inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: center;
+}
+
+.start .section__label {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.start .section__title {
+  color: #fff;
+  margin-bottom: 8px;
+}
+
+.start__date {
+  font-size: 2rem;
+  font-weight: 800;
+  margin-bottom: 16px;
+}
+
+.start__desc {
+  font-size: 1rem;
+  opacity: 0.9;
+  margin-bottom: 28px;
+  max-width: 400px;
+}
+
+.start__desc strong {
+  color: #fff;
+}
+
+.start .btn--primary {
+  background: #fff;
+  color: var(--accent);
+}
+
+.start .btn--primary:hover {
+  background: var(--accent-light);
+}
+
+.countdown {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.countdown__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 72px;
+  padding: 20px 12px;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: var(--radius-sm);
+  backdrop-filter: blur(8px);
+}
+
+.countdown__value {
+  font-size: 2.25rem;
+  font-weight: 800;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+
+.countdown__label {
+  font-size: 0.75rem;
+  opacity: 0.8;
+  margin-top: 6px;
+}
+
+.countdown__sep {
+  font-size: 2rem;
+  font-weight: 700;
+  opacity: 0.5;
+  padding-bottom: 20px;
+}
+
+/* ——— Футер ——— */
+
+.footer {
+  background: var(--text);
+  color: #cbd5e1;
+  padding-top: 56px;
+}
+
+.footer__inner {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr;
+  gap: 40px;
+  padding-bottom: 40px;
+}
+
+.footer .logo__mark {
+  background: var(--accent);
+}
+
+.footer .logo__text {
+  color: #fff;
+}
+
+.footer__tagline {
+  margin-top: 12px;
+  font-size: 0.9rem;
+  max-width: 280px;
+}
+
+.footer h3 {
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #fff;
+  margin-bottom: 16px;
+}
+
+.footer__contacts a,
+.footer__contacts p {
+  display: block;
+  font-size: 0.95rem;
+  margin-bottom: 8px;
+  transition: color 0.2s;
+}
+
+.footer__contacts a:hover {
+  color: #fff;
+}
+
+.footer__social-links {
+  display: flex;
+  gap: 12px;
+}
+
+.footer__social-links a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  color: #fff;
+  transition: background 0.2s;
+}
+
+.footer__social-links a:hover {
+  background: var(--accent);
+}
+
+.footer__bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 20px 0;
+}
+
+.footer__bottom p {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+/* ——— Адаптив ——— */
+
+@media (max-width: 1024px) {
+  .audience__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .courses__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .nav-toggle {
+    display: block;
+  }
+
+  .nav {
+    display: none;
+    position: absolute;
+    top: var(--header-height);
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    gap: 0;
+    background: #fff;
+    border-bottom: 1px solid var(--border);
+    padding: 16px 24px;
+    box-shadow: var(--shadow);
+  }
+
+  .nav.is-open {
+    display: flex;
+  }
+
+  .nav__link {
+    padding: 12px 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .header__cta {
+    display: none;
+  }
+
+  .hero__inner,
+  .start__inner {
+    grid-template-columns: 1fr;
+  }
+
+  .hero__visual {
+    order: -1;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+
+  .hero__float--1 { right: 0; }
+  .hero__float--2 { left: 0; }
+
+  .steps__item {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .steps__num {
+    font-size: 1.25rem;
+  }
+
+  .steps__thumb {
+    justify-self: start;
+  }
+
+  .audience__grid,
+  .reviews__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .countdown {
+    flex-wrap: wrap;
+  }
+
+  .footer__inner {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+}

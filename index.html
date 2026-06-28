@@ -31,13 +31,30 @@
       max-width: 880px;
       margin: 0 auto;
     }
+    main { flex: 1; }
+    .section-block { padding: 2rem 0 1rem; }
+    .section-block + .section-block { padding-top: 1rem; }
+    .section-title {
+      font-size: clamp(1.25rem, 2.5vw, 1.65rem);
+      margin-bottom: 1.2rem;
+      letter-spacing: 0.03em;
+    }
+    .section-lead {
+      color: #bdc7de;
+      line-height: 1.6;
+      margin-bottom: 1.2rem;
+      max-width: 760px;
+    }
     .projects {
-      flex: 1;
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 1rem;
-      align-content: center;
-      padding: 2rem 0 3rem;
+    }
+    .samples {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 1rem;
+      padding-bottom: 3rem;
     }
     .project-card {
       border: 1px solid rgba(255,255,255,0.12);
@@ -59,6 +76,39 @@
     .project-link {
       margin-top: 1rem;
       display: inline-block;
+      font-size: 0.9rem;
+      color: #82c0ff;
+    }
+    .sample-card {
+      border: 1px solid rgba(255,255,255,0.12);
+      background: rgba(255,255,255,0.07);
+      backdrop-filter: blur(6px);
+      border-radius: 16px;
+      overflow: hidden;
+      transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+      display: flex;
+      flex-direction: column;
+      text-decoration: none;
+      color: inherit;
+      min-height: 100%;
+    }
+    .sample-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(114, 190, 255, 0.7);
+      background: rgba(255,255,255,0.1);
+    }
+    .sample-thumb {
+      width: 100%;
+      aspect-ratio: 16 / 10;
+      object-fit: cover;
+      display: block;
+      background: rgba(255,255,255,0.05);
+    }
+    .sample-body { padding: 1.1rem 1.25rem 1.3rem; flex: 1; display: flex; flex-direction: column; }
+    .sample-body h3 { margin-bottom: 0.55rem; font-size: 1.08rem; }
+    .sample-body p { color: #bec8df; line-height: 1.55; flex: 1; }
+    .sample-link {
+      margin-top: 0.9rem;
       font-size: 0.9rem;
       color: #82c0ff;
     }
@@ -206,6 +256,7 @@
 
     @media (max-width: 920px) {
       .projects { grid-template-columns: 1fr; }
+      .samples { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -219,22 +270,74 @@
     </p>
   </header>
 
-  <main class="container projects">
-    <article class="project-card" data-project="p1">
-      <h3>PromptOps Studio</h3>
-      <p>Система тестирования и версионирования промптов с автоматической оценкой качества ответов модели.</p>
-      <span class="project-link">Открыть детали</span>
-    </article>
-    <article class="project-card" data-project="p2">
-      <h3>RAG Knowledge Assistant</h3>
-      <p>Ассистент по документам: поиск релевантных фрагментов + генерация ответа с указанием источников.</p>
-      <span class="project-link">Открыть детали</span>
-    </article>
-    <article class="project-card" data-project="p3">
-      <h3>AI Brief Generator</h3>
-      <p>Генератор технических заданий и проектных брифов на основе короткого бизнес-описания идеи.</p>
-      <span class="project-link">Открыть детали</span>
-    </article>
+  <main class="container">
+    <section class="section-block">
+      <h2 class="section-title">ИТ-проекты</h2>
+      <div class="projects">
+        <article class="project-card" data-project="p1">
+          <h3>PromptOps Studio</h3>
+          <p>Система тестирования и версионирования промптов с автоматической оценкой качества ответов модели.</p>
+          <span class="project-link">Открыть детали</span>
+        </article>
+        <article class="project-card" data-project="p2">
+          <h3>RAG Knowledge Assistant</h3>
+          <p>Ассистент по документам: поиск релевантных фрагментов + генерация ответа с указанием источников.</p>
+          <span class="project-link">Открыть детали</span>
+        </article>
+        <article class="project-card" data-project="p3">
+          <h3>AI Brief Generator</h3>
+          <p>Генератор технических заданий и проектных брифов на основе короткого бизнес-описания идеи.</p>
+          <span class="project-link">Открыть детали</span>
+        </article>
+      </div>
+    </section>
+
+    <section class="section-block">
+      <h2 class="section-title">Образцы сайтов</h2>
+      <p class="section-lead">Пять демонстрационных макетов «КАБ‑студия» для разных направлений бизнеса — от ИТ-разработки до фотостудии.</p>
+      <div class="samples">
+        <a class="sample-card" href="портфель_сайтов/ИТ-студия/index.html">
+          <img class="sample-thumb" src="портфель_сайтов/ИТ-студия.jpg" alt="Образец сайта ИТ-студии" loading="lazy">
+          <div class="sample-body">
+            <h3>ИТ-студия</h3>
+            <p>Многостраничный сайт: услуги, кейсы, команда и контакты в технологичном стиле.</p>
+            <span class="sample-link">Открыть образец →</span>
+          </div>
+        </a>
+        <a class="sample-card" href="портфель_сайтов/Интерьер/index.html">
+          <img class="sample-thumb" src="портфель_сайтов/Интерьер.jpg" alt="Образец сайта студии интерьера" loading="lazy">
+          <div class="sample-body">
+            <h3>Дизайн интерьера</h3>
+            <p>Одностраничный лендинг студии дизайна интерьера с портфолио и этапами работы.</p>
+            <span class="sample-link">Открыть образец →</span>
+          </div>
+        </a>
+        <a class="sample-card" href="портфель_сайтов/Онлайн-школа/index.html">
+          <img class="sample-thumb" src="портфель_сайтов/Онлайн-школа.jpg" alt="Образец сайта онлайн-школы" loading="lazy">
+          <div class="sample-body">
+            <h3>Онлайн-школа</h3>
+            <p>Образовательный лендинг с программами курсов, отзывами и формой записи.</p>
+            <span class="sample-link">Открыть образец →</span>
+          </div>
+        </a>
+        <a class="sample-card" href="портфель_сайтов/Студия_мебели/index.html">
+          <img class="sample-thumb" src="портфель_сайтов/Студия_мебели.jpg" alt="Образец сайта мебельной студии" loading="lazy">
+          <div class="sample-body">
+            <h3>Мебель на заказ</h3>
+            <p>Каталог мебели с фильтрами, галереей работ и карточками товаров.</p>
+            <span class="sample-link">Открыть образец →</span>
+          </div>
+        </a>
+        <a class="sample-card" href="портфель_сайтов/Фотостудия/index.html">
+          <img class="sample-thumb" src="портфель_сайтов/Фотостудия.jpg" alt="Образец сайта фотостудии" loading="lazy">
+          <div class="sample-body">
+            <h3>Фотостудия</h3>
+            <p>Лендинг фото- и видеостудии с акцентом на визуальное портфолио и услуги.</p>
+            <span class="sample-link">Открыть образец →</span>
+          </div>
+        </a>
+      </div>
+    </section>
   </main>
 
   <footer class="footer">

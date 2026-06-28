@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>КАБ‑студия — Мебель на заказ</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <header class="header">
+    <div class="container header__inner">
+      <a href="#" class="logo">КАБ‑студия</a>
+      <nav class="nav">
+        <a href="#catalog">Каталог</a>
+        <a href="#works">Примеры работ</a>
+        <a href="#order">Как заказать</a>
+        <a href="#materials">Материалы</a>
+        <a href="#contacts">Контакты</a>
+      </nav>
+      <a href="#contacts" class="header__cta">Заказать замер</a>
+    </div>
+  </header>
+
+  <main>
+
+  <section class="hero section">
+    <div class="container hero__inner">
+      <div class="hero__content">
+        <p class="hero__tag">Москва · изготовление от 14 дней</p>
+        <h1 class="hero__title">Мебель на заказ<br>по вашим размерам</h1>
+        <p class="hero__subtitle">Точный замер, расчёт стоимости онлайн, гарантия 3 года</p>
+        <a href="#calculator" class="btn btn--primary">Рассчитать стоимость</a>
+        <ul class="hero__stats">
+          <li><strong>3 года</strong> гарантия на изделия</li>
+          <li><strong>14–28 дней</strong> срок изготовления</li>
+          <li><strong>0 ₽</strong> выезд замерщика</li>
+        </ul>
+      </div>
+      <div class="hero__slider" id="heroSlider">
+        <div class="slider">
+          <div class="slider__track">
+            <div class="slider__slide slider__slide--active">
+              <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=1200&q=80" alt="Кухня на заказ">
+            </div>
+            <div class="slider__slide">
+              <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=1200&q=80" alt="Шкаф-купе">
+            </div>
+            <div class="slider__slide">
+              <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=1200&q=80" alt="Гостиная с мебелью на заказ">
+            </div>
+          </div>
+          <button class="slider__btn slider__btn--prev" aria-label="Предыдущий слайд">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+          </button>
+          <button class="slider__btn slider__btn--next" aria-label="Следующий слайд">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+          </button>
+          <div class="slider__dots"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="catalog" class="catalog section">
+    <div class="container">
+      <div class="section__head">
+        <h2 class="section__title">Каталог</h2>
+        <p class="section__desc">Кухни, шкафы, гардеробные и мебель для всего дома. Цена фиксируется в договоре — без доплат на этапе монтажа.</p>
+      </div>
+
+      <div class="catalog__categories">
+        <button class="category-btn category-btn--active" data-category="all">Все</button>
+        <button class="category-btn" data-category="kitchen">Кухни</button>
+        <button class="category-btn" data-category="wardrobe">Шкафы‑купе</button>
+        <button class="category-btn" data-category="closet">Гардеробные</button>
+        <button class="category-btn" data-category="living">Гостиные</button>
+        <button class="category-btn" data-category="kids">Детская</button>
+      </div>
+
+      <div class="catalog__filters">
+        <div class="filter-group">
+          <span class="filter-group__label">Материал</span>
+          <div class="filter-group__options" data-filter="material">
+            <button class="filter-btn filter-btn--active" data-value="all">Все</button>
+            <button class="filter-btn" data-value="ldsp">ЛДСП</button>
+            <button class="filter-btn" data-value="mdf">МДФ</button>
+            <button class="filter-btn" data-value="solid">Массив</button>
+          </div>
+        </div>
+        <div class="filter-group">
+          <span class="filter-group__label">Цвет</span>
+          <div class="filter-group__options" data-filter="color">
+            <button class="filter-btn filter-btn--active" data-value="all">Все</button>
+            <button class="filter-btn" data-value="white">Белый</button>
+            <button class="filter-btn" data-value="graphite">Графит</button>
+            <button class="filter-btn" data-value="oak">Дуб</button>
+            <button class="filter-btn" data-value="walnut">Орех</button>
+          </div>
+        </div>
+        <div class="filter-group">
+          <span class="filter-group__label">Размер</span>
+          <div class="filter-group__options" data-filter="size">
+            <button class="filter-btn filter-btn--active" data-value="all">Все</button>
+            <button class="filter-btn" data-value="compact">До 2 м</button>
+            <button class="filter-btn" data-value="medium">2–3 м</button>
+            <button class="filter-btn" data-value="large">От 3 м</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="catalog__grid" id="productGrid"></div>
+      <p class="catalog__empty" id="catalogEmpty" hidden>Нет товаров по выбранным фильтрам. Попробуйте изменить параметры.</p>
+    </div>
+  </section>
+
+  <section id="works" class="works section">
+    <span class="watermark" aria-hidden="true">КАБ‑студия</span>
+    <div class="container">
+      <div class="section__head">
+        <h2 class="section__title">Примеры работ</h2>
+        <p class="section__desc">Реальные проекты за 2025–2026 год. Срок от замера до монтажа — в среднем 21 день.</p>
+      </div>
+      <div class="works__grid">
+        <article class="work-card work-card--large">
+          <div class="work-card__img-wrap">
+            <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=1200&q=80" alt="Кухня 12 м², ЖК Символ">
+            <span class="work-card__watermark" aria-hidden="true">КАБ‑студия</span>
+          </div>
+          <div class="work-card__info">
+            <span class="work-card__meta">12 м² · 18 дней · от 248 000 ₽</span>
+            <h3>Кухня, ЖК «Символ»</h3>
+          </div>
+        </article>
+        <article class="work-card">
+          <div class="work-card__img-wrap">
+            <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=700&q=80" alt="Шкаф-купе 3,2 м">
+            <span class="work-card__watermark" aria-hidden="true">КАБ‑студия</span>
+          </div>
+          <div class="work-card__info">
+            <span class="work-card__meta">3,2 м · 14 дней · от 86 000 ₽</span>
+            <h3>Шкаф‑купе, Хамовники</h3>
+          </div>
+        </article>
+        <article class="work-card">
+          <div class="work-card__img-wrap">
+            <img src="https://images.unsplash.com/photo-1631889992178-680e4c725b7f?w=700&q=80" alt="Гардеробная 6 м²">
+            <span class="work-card__watermark" aria-hidden="true">КАБ‑студия</span>
+          </div>
+          <div class="work-card__info">
+            <span class="work-card__meta">6 м² · 21 день · от 142 000 ₽</span>
+            <h3>Гардеробная, Кунцево</h3>
+          </div>
+        </article>
+        <article class="work-card">
+          <div class="work-card__img-wrap">
+            <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=700&q=80" alt="Гостиная с ТВ-зоной">
+            <span class="work-card__watermark" aria-hidden="true">КАБ‑студия</span>
+          </div>
+          <div class="work-card__info">
+            <span class="work-card__meta">4,8 м · 16 дней · от 118 000 ₽</span>
+            <h3>Гостиная с ТВ‑зоной</h3>
+          </div>
+        </article>
+        <article class="work-card work-card--wide">
+          <div class="work-card__img-wrap">
+            <img src="https://images.unsplash.com/photo-1558449088-6556d5405c2b?w=1200&q=80" alt="Детская комната">
+            <span class="work-card__watermark" aria-hidden="true">КАБ‑студия</span>
+          </div>
+          <div class="work-card__info">
+            <span class="work-card__meta">14 м² · 19 дней · от 196 000 ₽</span>
+            <h3>Детская, Новая Москва</h3>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="order" class="order section">
+    <span class="watermark" aria-hidden="true">КАБ‑студия</span>
+    <div class="container">
+      <div class="section__head">
+        <h2 class="section__title">Как заказать</h2>
+        <p class="section__desc">Прозрачный процесс: вы знаете срок и стоимость до подписания договора.</p>
+      </div>
+      <div class="order__grid">
+        <div class="step-card">
+          <div class="step-card__icon">
+            <svg viewBox="0 0 48 48" fill="none" aria-hidden="true"><rect x="10" y="6" width="28" height="36" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M18 18h12M18 26h12M18 34h8" stroke="currentColor" stroke-width="1.5"/></svg>
+          </div>
+          <span class="step-card__num">01</span>
+          <h3>Заявка и замер</h3>
+          <p>Оставляете заявку — замерщик приедет в удобное время. Обмер и консультация бесплатно.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-card__icon">
+            <svg viewBox="0 0 48 48" fill="none" aria-hidden="true"><rect x="6" y="10" width="36" height="28" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M14 22l6 6 14-14" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
+          </div>
+          <span class="step-card__num">02</span>
+          <h3>Расчёт и 3D‑проект</h3>
+          <p>Готовим проект и смету за 2–3 дня. Стоимость фиксируется — доплат на монтаже не будет.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-card__icon">
+            <svg viewBox="0 0 48 48" fill="none" aria-hidden="true"><path d="M8 20l16-12 16 12v18H8V20z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><rect x="18" y="28" width="12" height="10" stroke="currentColor" stroke-width="1.5"/></svg>
+          </div>
+          <span class="step-card__num">03</span>
+          <h3>Изготовление</h3>
+          <p>Производство на собственном цехе. Срок — от 14 до 28 дней в зависимости от сложности.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-card__icon">
+            <svg viewBox="0 0 48 48" fill="none" aria-hidden="true"><circle cx="24" cy="24" r="16" stroke="currentColor" stroke-width="1.5"/><path d="M24 16v8l6 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+          </div>
+          <span class="step-card__num">04</span>
+          <h3>Доставка и монтаж</h3>
+          <p>Установка за 1 день, уборка после работ. Гарантия 3 года — прописана в договоре.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="materials" class="materials section">
+    <div class="container">
+      <div class="section__head">
+        <h2 class="section__title">Материалы и цвета</h2>
+        <p class="section__desc">Более 120 декоров и фасадов. Образцы привезём на замер — выбирайте на месте.</p>
+      </div>
+      <div class="materials__grid">
+        <div class="swatch" style="--swatch-color: #f5f3ef">
+          <span class="swatch__name">Белый матовый</span>
+          <span class="swatch__type">ЛДСП Egger</span>
+        </div>
+        <div class="swatch" style="--swatch-color: #3d3835">
+          <span class="swatch__name">Графит</span>
+          <span class="swatch__type">МДФ Soft-touch</span>
+        </div>
+        <div class="swatch" style="--swatch-color: #c4a882">
+          <span class="swatch__name">Дуб натуральный</span>
+          <span class="swatch__type">Шпон</span>
+        </div>
+        <div class="swatch" style="--swatch-color: #6b5344">
+          <span class="swatch__name">Орех</span>
+          <span class="swatch__type">Массив</span>
+        </div>
+        <div class="swatch" style="--swatch-color: #d4c8b8">
+          <span class="swatch__name">Бежевый</span>
+          <span class="swatch__type">ЛДСП Kronospan</span>
+        </div>
+        <div class="swatch" style="--swatch-color: #8a8580">
+          <span class="swatch__name">Серый камень</span>
+          <span class="swatch__type">МДФ</span>
+        </div>
+        <div class="swatch" style="--swatch-color: #2c2c2c">
+          <span class="swatch__name">Чёрный</span>
+          <span class="swatch__type">МДФ Soft-touch</span>
+        </div>
+        <div class="swatch" style="--swatch-color: #e8e0d4">
+          <span class="swatch__name">Кашемир</span>
+          <span class="swatch__type">ЛДСП</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="calculator" class="calculator section">
+    <div class="container calculator__inner">
+      <div class="calculator__info">
+        <h2 class="section__title">Рассчитать стоимость</h2>
+        <p class="calculator__lead">Предварительный расчёт за 1 минуту. Точная смета — после бесплатного замера.</p>
+        <ul class="calculator__features">
+          <li>Фиксированная цена в договоре</li>
+          <li>Бесплатный выезд замерщика</li>
+          <li>Гарантия 3 года на все изделия</li>
+        </ul>
+      </div>
+      <form class="calculator__form" id="calcForm">
+        <label class="form-field">
+          <span class="form-field__label">Тип мебели</span>
+          <select name="type" required>
+            <option value="kitchen">Кухня</option>
+            <option value="wardrobe">Шкаф‑купе</option>
+            <option value="closet">Гардеробная</option>
+            <option value="living">Гостиная / стенка</option>
+            <option value="kids">Детская</option>
+          </select>
+        </label>
+        <label class="form-field">
+          <span class="form-field__label">Примерная длина (м)</span>
+          <input type="number" name="length" min="1" max="20" step="0.1" value="3" required>
+        </label>
+        <label class="form-field">
+          <span class="form-field__label">Материал фасада</span>
+          <select name="material" required>
+            <option value="ldsp">ЛДСП</option>
+            <option value="mdf">МДФ</option>
+            <option value="solid">Массив</option>
+          </select>
+        </label>
+        <div class="calculator__result" id="calcResult">
+          <span class="calculator__result-label">Ориентировочная стоимость</span>
+          <span class="calculator__result-price" id="calcPrice">—</span>
+        </div>
+        <button type="submit" class="btn btn--primary">Получить точный расчёт</button>
+      </form>
+    </div>
+  </section>
+
+  <section id="contacts" class="contacts section">
+    <span class="watermark" aria-hidden="true">КАБ‑студия</span>
+    <div class="container contacts__inner">
+      <div class="contacts__info">
+        <h2 class="section__title">Контакты и замер</h2>
+        <p class="contacts__lead">Замерщик приедет в удобное время — в будни и выходные. Ответим в течение 30 минут.</p>
+        <ul class="contacts__list">
+          <li>
+            <span class="contacts__label">Телефон</span>
+            <a href="tel:+74951234567">+7 (495) 123‑45‑67</a>
+          </li>
+          <li>
+            <span class="contacts__label">Почта</span>
+            <a href="mailto:mebel@kab-studio.ru">mebel@kab-studio.ru</a>
+          </li>
+          <li>
+            <span class="contacts__label">Шоурум</span>
+            <span>Москва, ул. Пятницкая, 12, офис 304</span>
+          </li>
+          <li>
+            <span class="contacts__label">Часы работы</span>
+            <span>Пн–Сб, 10:00–19:00</span>
+          </li>
+        </ul>
+        <div class="messengers">
+          <span class="contacts__label">Мессенджеры</span>
+          <div class="messengers__links">
+            <a href="#" class="messenger messenger--tg" aria-label="Telegram">Telegram</a>
+            <a href="#" class="messenger messenger--wa" aria-label="WhatsApp">WhatsApp</a>
+          </div>
+        </div>
+        <form class="contact-form" id="contactForm">
+          <input type="text" name="name" placeholder="Ваше имя" required>
+          <input type="tel" name="phone" placeholder="Телефон" required>
+          <input type="text" name="address" placeholder="Адрес для замера">
+          <button type="submit" class="btn btn--primary">Заказать замер</button>
+        </form>
+      </div>
+      <div class="contacts__map">
+        <iframe
+          title="Карта шоурума КАБ‑студия"
+          src="https://www.openstreetmap.org/export/embed.html?bbox=37.625%2C55.740%2C37.635%2C55.746&layer=mapnik&marker=55.743%2C37.630"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+    </div>
+  </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <a href="#" class="logo logo--footer">КАБ‑студия</a>
+      <div class="footer__contacts">
+        <a href="tel:+74951234567">+7 (495) 123‑45‑67</a>
+        <a href="mailto:mebel@kab-studio.ru">mebel@kab-studio.ru</a>
+      </div>
+      <div class="footer__messengers">
+        <a href="#">Telegram</a>
+        <a href="#">WhatsApp</a>
+      </div>
+      <p class="footer__copy">© 2026 КАБ‑студия. Мебель на заказ по вашим размерам.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

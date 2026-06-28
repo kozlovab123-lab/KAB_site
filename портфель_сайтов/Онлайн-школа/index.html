@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>КАБ‑студия — Онлайн‑школа</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <header class="header">
+    <div class="container header__inner">
+      <a href="#" class="logo">
+        <span class="logo__mark">КАБ</span>
+        <span class="logo__text">КАБ<span>‑студия</span></span>
+      </a>
+      <button class="nav-toggle" aria-label="Меню" aria-expanded="false">
+        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+      <nav class="nav">
+        <a href="#steps" class="nav__link">Обучение</a>
+        <a href="#courses" class="nav__link">Курсы</a>
+        <a href="#audience" class="nav__link">Для кого</a>
+        <a href="#reviews" class="nav__link">Отзывы</a>
+        <a href="#start" class="nav__link">Старт</a>
+      </nav>
+      <a href="#courses" class="btn btn--primary btn--sm header__cta">Выбрать курс</a>
+    </div>
+  </header>
+
+  <main>
+
+    <section class="hero">
+      <div class="container hero__inner">
+        <div class="hero__content">
+          <p class="hero__label">Онлайн‑школа · 8 недель</p>
+          <h1 class="hero__title">Освойте востребованные навыки за&nbsp;8&nbsp;недель</h1>
+          <p class="hero__subtitle">Python, Flutter, Git, промпт‑инжиниринг — с нуля до первых проектов</p>
+          <a href="#courses" class="btn btn--primary">Выбрать курс</a>
+          <ul class="hero__stats">
+            <li><strong>4</strong> направления</li>
+            <li><strong>12+</strong> проектов в портфолио</li>
+            <li><strong>1:8</strong> наставник / группа</li>
+          </ul>
+        </div>
+        <div class="hero__visual">
+          <div class="lesson-mock lesson-mock--hero" aria-hidden="true">
+            <div class="lesson-mock__bar">
+              <span class="lesson-mock__dot"></span>
+              <span class="lesson-mock__dot"></span>
+              <span class="lesson-mock__dot"></span>
+              <span class="lesson-mock__title">lesson_03.py</span>
+            </div>
+            <div class="lesson-mock__body">
+              <div class="lesson-mock__line"><span class="kw">def</span> <span class="fn">build_portfolio</span>(skills):</div>
+              <div class="lesson-mock__line indent"><span class="kw">return</span> [s.practice() <span class="kw">for</span> s <span class="kw">in</span> skills]</div>
+              <div class="lesson-mock__line"></div>
+              <div class="lesson-mock__line">result = build_portfolio([<span class="str">"Python"</span>, <span class="str">"Git"</span>])</div>
+              <div class="lesson-mock__line"><span class="fn">print</span>(<span class="str">f"Готово: {len(result)} проектов"</span>)</div>
+            </div>
+            <span class="lesson-mock__badge">КАБ‑студия</span>
+          </div>
+          <div class="hero__float hero__float--1">
+            <span class="hero__float-icon">✓</span>
+            <span>Модуль 3 пройден</span>
+          </div>
+          <div class="hero__float hero__float--2">
+            <span class="hero__float-icon">📁</span>
+            <span>+1 проект в Git</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="steps" class="section steps">
+      <div class="container">
+        <p class="section__label">Процесс</p>
+        <h2 class="section__title">Как устроено обучение</h2>
+        <p class="section__desc">Пять шагов от регистрации до готового проекта в портфолио — без хаоса и лишней теории.</p>
+        <ol class="steps__list">
+          <li class="steps__item">
+            <span class="steps__num">01</span>
+            <div class="steps__content">
+              <h3>Диагностика уровня</h3>
+              <p>Короткий тест и созвон с наставником: определяем стартовую точку и план на 8 недель.</p>
+            </div>
+            <div class="steps__thumb" aria-hidden="true">
+              <div class="mini-mock mini-mock--quiz">
+                <div class="mini-mock__q">Ваш опыт с Python?</div>
+                <div class="mini-mock__opt mini-mock__opt--active">Новичок</div>
+                <div class="mini-mock__opt">Базовый</div>
+              </div>
+            </div>
+          </li>
+          <li class="steps__item">
+            <span class="steps__num">02</span>
+            <div class="steps__content">
+              <h3>Видеоуроки и конспекты</h3>
+              <p>Структурированные модули по 20–30 минут. К каждому уроку — чек‑лист и шаблоны кода.</p>
+            </div>
+            <div class="steps__thumb" aria-hidden="true">
+              <div class="mini-mock mini-mock--video">
+                <div class="mini-mock__play">▶</div>
+                <div class="mini-mock__progress"></div>
+              </div>
+            </div>
+          </li>
+          <li class="steps__item">
+            <span class="steps__num">03</span>
+            <div class="steps__content">
+              <h3>Практика на задачах</h3>
+              <p>Еженедельные задания с автопроверкой и разбором типичных ошибок в общем чате.</p>
+            </div>
+            <div class="steps__thumb" aria-hidden="true">
+              <div class="mini-mock mini-mock--task">
+                <div class="mini-mock__status">✓ 8/10 тестов</div>
+                <div class="mini-mock__bar-fill"></div>
+              </div>
+            </div>
+          </li>
+          <li class="steps__item">
+            <span class="steps__num">04</span>
+            <div class="steps__content">
+              <h3>Код‑ревью наставника</h3>
+              <p>Обратная связь по каждому проекту: что улучшить, как оформить репозиторий, как писать README.</p>
+            </div>
+            <div class="steps__thumb" aria-hidden="true">
+              <div class="mini-mock mini-mock--review">
+                <div class="mini-mock__comment">+ Вынеси логику в отдельный модуль</div>
+                <div class="mini-mock__comment mini-mock__comment--ok">✓ Тесты покрывают edge cases</div>
+              </div>
+            </div>
+          </li>
+          <li class="steps__item">
+            <span class="steps__num">05</span>
+            <div class="steps__content">
+              <h3>Итоговый проект</h3>
+              <p>Рабочее приложение или сервис в портфолио. Презентация на демо‑дне потока.</p>
+            </div>
+            <div class="steps__thumb" aria-hidden="true">
+              <div class="mini-mock mini-mock--cert">
+                <span class="mini-mock__logo">КАБ‑студия</span>
+                <span class="mini-mock__cert-text">Проект сдан</span>
+              </div>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section id="courses" class="section section--alt courses">
+      <div class="container">
+        <p class="section__label">Программы</p>
+        <h2 class="section__title">Курсы</h2>
+        <p class="section__desc">Каждый курс — чёткий маршрут с измеримым результатом к концу 8‑й недели.</p>
+        <div class="courses__grid">
+
+          <article class="course-card">
+            <div class="course-card__cover course-card__cover--python" aria-hidden="true">
+              <span class="course-card__logo">КАБ‑студия</span>
+              <div class="course-card__screen">
+                <span class="course-card__lang">Python</span>
+                <code>api.get("/users")</code>
+              </div>
+            </div>
+            <div class="course-card__body">
+              <h3 class="course-card__title">Python с нуля</h3>
+              <p class="course-card__meta"><span>8 недель</span><span>·</span><span>3 проекта</span></p>
+              <p class="course-card__result"><strong>Результат:</strong> REST‑API на FastAPI и Telegram‑бот для автоматизации задач.</p>
+              <a href="#start" class="btn btn--outline">Записаться</a>
+            </div>
+          </article>
+
+          <article class="course-card">
+            <div class="course-card__cover course-card__cover--flutter" aria-hidden="true">
+              <span class="course-card__logo">КАБ‑студия</span>
+              <div class="course-card__screen course-card__screen--mobile">
+                <div class="course-card__phone-bar"></div>
+                <span>Flutter UI</span>
+              </div>
+            </div>
+            <div class="course-card__body">
+              <h3 class="course-card__title">Flutter: мобильные приложения</h3>
+              <p class="course-card__meta"><span>8 недель</span><span>·</span><span>2 приложения</span></p>
+              <p class="course-card__result"><strong>Результат:</strong> Кроссплатформенное приложение с навигацией, формами и работой с API.</p>
+              <a href="#start" class="btn btn--outline">Записаться</a>
+            </div>
+          </article>
+
+          <article class="course-card">
+            <div class="course-card__cover course-card__cover--git" aria-hidden="true">
+              <span class="course-card__logo">КАБ‑студия</span>
+              <div class="course-card__screen course-card__screen--git">
+                <span class="git-line git-line--add">+ feature/auth</span>
+                <span class="git-line">M README.md</span>
+                <span class="git-line git-line--merge">↳ merge main</span>
+              </div>
+            </div>
+            <div class="course-card__body">
+              <h3 class="course-card__title">Git и командная работа</h3>
+              <p class="course-card__meta"><span>6 недель</span><span>·</span><span>1 командный проект</span></p>
+              <p class="course-card__result"><strong>Результат:</strong> Уверенная работа с ветками, PR, code review и CI на GitHub Actions.</p>
+              <a href="#start" class="btn btn--outline">Записаться</a>
+            </div>
+          </article>
+
+          <article class="course-card">
+            <div class="course-card__cover course-card__cover--prompt" aria-hidden="true">
+              <span class="course-card__logo">КАБ‑студия</span>
+              <div class="course-card__screen course-card__screen--prompt">
+                <span class="prompt-role">system</span>
+                <span class="prompt-text">Ты — ассистент разработчика…</span>
+                <span class="prompt-role">user</span>
+                <span class="prompt-text">Сгенерируй тесты для API</span>
+              </div>
+            </div>
+            <div class="course-card__body">
+              <h3 class="course-card__title">Промпт‑инжиниринг</h3>
+              <p class="course-card__meta"><span>4 недели</span><span>·</span><span>5 сценариев</span></p>
+              <p class="course-card__result"><strong>Результат:</strong> Набор рабочих промптов для кода, документации и автоматизации рутины.</p>
+              <a href="#start" class="btn btn--outline">Записаться</a>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <section id="audience" class="section audience">
+      <div class="container">
+        <p class="section__label">Аудитория</p>
+        <h2 class="section__title">Для кого</h2>
+        <p class="section__desc">Курсы рассчитаны на разные стартовые точки — главное, готовность выделять 6–8 часов в неделю.</p>
+        <div class="audience__grid">
+          <div class="audience-card">
+            <div class="audience-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 48 48" fill="none"><circle cx="24" cy="18" r="8" stroke="currentColor" stroke-width="2"/><path d="M8 42c0-8.837 7.163-16 16-16s16 7.163 16 16" stroke="currentColor" stroke-width="2"/></svg>
+            </div>
+            <h3>Новички в IT</h3>
+            <p>Хотите сменить профессию и нужен понятный маршрут без «воды» — от установки окружения до первого коммита.</p>
+          </div>
+          <div class="audience-card">
+            <div class="audience-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 48 48" fill="none"><rect x="10" y="14" width="28" height="20" rx="2" stroke="currentColor" stroke-width="2"/><path d="M18 10h12v4H18z" stroke="currentColor" stroke-width="2"/></svg>
+            </div>
+            <h3>Специалисты смежных областей</h3>
+            <p>Аналитики, дизайнеры, маркетологи — освоите инструменты, чтобы автоматизировать задачи и говорить с разработчиками на одном языке.</p>
+          </div>
+          <div class="audience-card">
+            <div class="audience-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 48 48" fill="none"><path d="M12 36l8-20 8 12 8-16 4 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <h3>Джуны с пробелами</h3>
+            <p>Уже пишете код, но не хватает системности: Git‑флоу, тесты, структура проекта — закроете конкретные пробелы.</p>
+          </div>
+          <div class="audience-card">
+            <div class="audience-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 48 48" fill="none"><path d="M24 8v32M8 24h32" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="24" cy="24" r="16" stroke="currentColor" stroke-width="2"/></svg>
+            </div>
+            <h3>Предприниматели</h3>
+            <p>Нужно быстро проверить идею: MVP на Flutter, бот на Python или пайплайн с ИИ — без найма целой команды на старте.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="reviews" class="section section--alt reviews">
+      <div class="container">
+        <p class="section__label">Выпускники</p>
+        <h2 class="section__title">Отзывы</h2>
+        <div class="reviews__grid">
+          <blockquote class="review-card">
+            <div class="review-card__header">
+              <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=120&h=120&fit=crop&crop=face" alt="Анна К." class="review-card__photo" width="56" height="56" loading="lazy">
+              <div>
+                <cite class="review-card__name">Анна К.</cite>
+                <span class="review-card__course">Python с нуля</span>
+              </div>
+            </div>
+            <p>За 8 недель собрала API и бота — оба проекта в резюме. Нравится, что каждая неделя имеет чёткий чек‑лист: видно, что уже сделано и что осталось.</p>
+          </blockquote>
+          <blockquote class="review-card">
+            <div class="review-card__header">
+              <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=120&h=120&fit=crop&crop=face" alt="Дмитрий М." class="review-card__photo" width="56" height="56" loading="lazy">
+              <div>
+                <cite class="review-card__name">Дмитрий М.</cite>
+                <span class="review-card__course">Git и командная работа</span>
+              </div>
+            </div>
+            <p>Наконец разобрался с ветками и PR — раньше боялся ломать репозиторий. Код‑ревью от наставника помогло выстроить привычки, которые сейчас использую на работе.</p>
+          </blockquote>
+          <blockquote class="review-card">
+            <div class="review-card__header">
+              <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=120&h=120&fit=crop&crop=face" alt="Елена С." class="review-card__photo" width="56" height="56" loading="lazy">
+              <div>
+                <cite class="review-card__name">Елена С.</cite>
+                <span class="review-card__course">Промпт‑инжиниринг</span>
+              </div>
+            </div>
+            <p>Как аналитик, сократила время на отчёты примерно вдвое. Промпты из курса — не абстрактные советы, а готовые шаблоны под мои задачи.</p>
+          </blockquote>
+        </div>
+      </div>
+    </section>
+
+    <section id="start" class="section start">
+      <div class="container start__inner">
+        <div class="start__content">
+          <p class="section__label">Ближайший набор</p>
+          <h2 class="section__title">Старт потока</h2>
+          <p class="start__date">14 июля 2026</p>
+          <p class="start__desc">Осталось мест в группах: <strong>12 из 40</strong>. После старта запись на текущий поток закрывается.</p>
+          <a href="mailto:hello@kab-studio.ru" class="btn btn--primary">Забронировать место</a>
+        </div>
+        <div class="countdown" aria-label="Обратный отсчёт до старта потока">
+          <div class="countdown__item">
+            <span class="countdown__value" id="cd-days">00</span>
+            <span class="countdown__label">дней</span>
+          </div>
+          <div class="countdown__sep">:</div>
+          <div class="countdown__item">
+            <span class="countdown__value" id="cd-hours">00</span>
+            <span class="countdown__label">часов</span>
+          </div>
+          <div class="countdown__sep">:</div>
+          <div class="countdown__item">
+            <span class="countdown__value" id="cd-mins">00</span>
+            <span class="countdown__label">минут</span>
+          </div>
+          <div class="countdown__sep">:</div>
+          <div class="countdown__item">
+            <span class="countdown__value" id="cd-secs">00</span>
+            <span class="countdown__label">секунд</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="footer__brand">
+        <a href="#" class="logo logo--footer">
+          <span class="logo__mark">КАБ</span>
+          <span class="logo__text">КАБ<span>‑студия</span></span>
+        </a>
+        <p class="footer__tagline">Онлайн‑школа с упором на практику и измеримый результат.</p>
+      </div>
+      <div class="footer__contacts">
+        <h3>Контакты</h3>
+        <a href="mailto:hello@kab-studio.ru">hello@kab-studio.ru</a>
+        <a href="tel:+74951234567">+7 (495) 123‑45‑67</a>
+        <p>Москва, онлайн‑формат</p>
+      </div>
+      <div class="footer__social">
+        <h3>Соцсети</h3>
+        <div class="footer__social-links">
+          <a href="#" aria-label="Telegram">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="22" height="22"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.74-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/></svg>
+          </a>
+          <a href="#" aria-label="ВКонтакте">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="22" height="22"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm5.07 12.13c.44.44.91.86.91 1.29 0 .2-.07.39-.2.53-.36.36-.94.36-1.54.36h-1.02c-.54 0-.71-.43-1.68-1.42-.85-.86-1.23-.97-1.44-.97-.3 0-.38.09-.38.52v1.3c0 .37-.12.59-1.09.59-1.6 0-3.38-.97-4.63-2.77-1.19-1.72-1.52-3.01-1.52-3.14 0-.14.04-.27.18-.4.14-.13.32-.17.45-.17h1.03c.34 0 .45.25.58.66.63 1.98 1.69 3.71 2.12 3.71.16 0 .23-.07.23-.46v-1.8c-.05-.84-.49-.91-.49-1.23 0-.15.12-.3.32-.3h1.62c.29 0 .39.15.39.49v2.43c0 .29.13.39.22.39.18 0 .33-.11.65-.44 1.01-1.13 1.73-2.88 1.73-2.88.1-.2.25-.39.58-.39h1.03c.31 0 .38.16.31.49-.14.67-1.52 3.28-1.52 3.28-.12.2-.17.32 0 .57.12.17.53.52 1.07 1.02.66.61 1.17 1.13 1.3 1.49.14.36-.07.54-.4.54h-1.58c-.36 0-.52-.16-.86-.52-.68-.72-1.42-1.46-1.98-1.46-.18 0-.27.09-.27.28v2.14c0 .36-.12.54-.98.54-1.45 0-3.03-.75-4.22-2.15z"/></svg>
+          </a>
+          <a href="#" aria-label="YouTube">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="22" height="22"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <div class="container">
+        <p>© 2026 КАБ‑студия. Все права защищены.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
